@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Front-End Developer Roadmap 2025 - Complete learning path with progress tracking">
+    <title>Front-End Developer Roadmap 2025</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <div class="profile-placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                </div>
+                <h1 class="hero-title">Front-End Developer Roadmap</h1>
+                <p class="hero-subtitle">Complete 2025 Learning Path</p>
+                <div class="overall-progress">
+                    <div class="progress-label">Overall Progress</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="overallProgress"></div>
+                    </div>
+                    <div class="progress-percentage" id="overallPercentage">0%</div>
+                </div>
+                <button class="edit-mode-btn" id="editModeBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                    </svg>
+                    <span>Edit Mode</span>
+                </button>
+                <button class="cert-btn disabled" id="claimCertBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Claim Certificate</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Confirmation Modal -->
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+            </div>
+            <h2 class="modal-title">Have you completed this topic?</h2>
+            <p class="modal-message">This action is final and will <strong>LOCK</strong> the topic. Once confirmed,
+                you'll need Edit Mode to unlock it.</p>
+            <div class="modal-topic" id="modalTopicName"></div>
+            <div class="modal-actions">
+                <button class="btn-cancel" id="modalCancel">Cancel</button>
+                <button class="btn-confirm" id="modalConfirm">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save as Completed
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Mode Passphrase Modal -->
+    <div class="modal-overlay" id="passphraseModal">
+        <div class="modal-content">
+            <div class="modal-icon warning">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+            </div>
+            <h2 class="modal-title">Enter Passphrase</h2>
+            <p class="modal-message">Enter your passphrase to enable Edit Mode and unlock completed items.</p>
+            <p class="modal-hint" id="passphraseHint"></p>
+            <input type="password" class="passphrase-input" id="passphraseInput" placeholder="Enter passphrase">
+            <div class="modal-actions">
+                <button class="btn-cancel" id="passphraseCancel">Cancel</button>
+                <button class="btn-confirm" id="passphraseConfirm">Unlock Edit Mode</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Roadmap Timeline -->
+    <main class="roadmap-container">
+        <div class="container">
+            <div class="timeline">
+
+                <!-- Phase 1: HTML Basics -->
+                <div class="phase-card" data-phase="1">
+                    <div class="phase-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <h2 class="phase-title">Phase 1 — HTML Basics</h2>
+                            <div class="phase-progress">
+                                <svg class="progress-ring" width="60" height="60">
+                                    <circle class="progress-ring-circle-bg" cx="30" cy="30" r="26"></circle>
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="26" data-phase-id="1">
+                                    </circle>
+                                    <text x="30" y="35" class="progress-text" data-phase-text="1">0%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="topics-section">
+                            <h3 class="section-subtitle">Topics</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Basic tags</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Headings, paragraphs</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Links & anchors</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Images</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Lists</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Tables</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Forms</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Input types</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Semantic HTML</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Audio & video</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Meta tags (SEO basics)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="projects-section">
+                            <h3 class="section-subtitle">🔨 Projects</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Bio page</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Resume page</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="1">
+                                    <span>Simple landing page</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2: CSS Basics -->
+                <div class="phase-card" data-phase="2">
+                    <div class="phase-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                        </svg>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <h2 class="phase-title">Phase 2 — CSS Basics</h2>
+                            <div class="phase-progress">
+                                <svg class="progress-ring" width="60" height="60">
+                                    <circle class="progress-ring-circle-bg" cx="30" cy="30" r="26"></circle>
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="26" data-phase-id="2">
+                                    </circle>
+                                    <text x="30" y="35" class="progress-text" data-phase-text="2">0%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="topics-section">
+                            <h3 class="section-subtitle">Topics</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Selectors</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Colors & backgrounds</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Margin / Padding</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Borders / Radius</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Display types</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Fonts & Google fonts</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Flexbox</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Grid</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Position</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Media queries</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Shadows, gradients</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Transitions</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Basic animations</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="projects-section">
+                            <h3 class="section-subtitle">🔨 Projects</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Instagram login clone</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Amazon header clone</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Spotify homepage clone</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="2">
+                                    <span>Portfolio UI (CSS only)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3: Responsive Design -->
+                <div class="phase-card" data-phase="3">
+                    <div class="phase-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <h2 class="phase-title">Phase 3 — Responsive Design</h2>
+                            <div class="phase-progress">
+                                <svg class="progress-ring" width="60" height="60">
+                                    <circle class="progress-ring-circle-bg" cx="30" cy="30" r="26"></circle>
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="26" data-phase-id="3">
+                                    </circle>
+                                    <text x="30" y="35" class="progress-text" data-phase-text="3">0%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="topics-section">
+                            <h3 class="section-subtitle">Topics</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="3">
+                                    <span>Mobile-first understanding</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="3">
+                                    <span>Flex & grid responsive</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="3">
+                                    <span>Responsive images</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="3">
+                                    <span>Fluid units (%, rem, vw)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="3">
+                                    <span>Responsive navbar</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="projects-section">
+                            <h3 class="section-subtitle">🔨 Project</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="3">
+                                    <span>Fully responsive portfolio</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4: Tailwind CSS -->
+                <div class="phase-card" data-phase="4">
+                    <div class="phase-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+                        </svg>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <h2 class="phase-title">Phase 4 — Tailwind CSS</h2>
+                            <div class="phase-progress">
+                                <svg class="progress-ring" width="60" height="60">
+                                    <circle class="progress-ring-circle-bg" cx="30" cy="30" r="26"></circle>
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="26" data-phase-id="4">
+                                    </circle>
+                                    <text x="30" y="35" class="progress-text" data-phase-text="4">0%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="topics-section">
+                            <h3 class="section-subtitle">Topics</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="4">
+                                    <span>Install Tailwind</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="4">
+                                    <span>Utility classes</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="4">
+                                    <span>Layout spacing</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="4">
+                                    <span>Typography</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="4">
+                                    <span>Flexbox</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="4">
+                                    <span>Grid</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="4">
+                                    <span>Responsive classes</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="4">
+                                    <span>Custom colors</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="4">
+                                    <span>Tailwind components</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="projects-section">
+                            <h3 class="section-subtitle">🔨 Projects</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="4">
+                                    <span>1 landing page</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="4">
+                                    <span>1 portfolio remake</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="4">
+                                    <span>1 login page UI</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="4">
+                                    <span>1 dashboard UI</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 5: JavaScript Core -->
+                <div class="phase-card" data-phase="5">
+                    <div class="phase-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <h2 class="phase-title">Phase 5 — JavaScript (Core)</h2>
+                            <div class="phase-progress">
+                                <svg class="progress-ring" width="60" height="60">
+                                    <circle class="progress-ring-circle-bg" cx="30" cy="30" r="26"></circle>
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="26" data-phase-id="5">
+                                    </circle>
+                                    <text x="30" y="35" class="progress-text" data-phase-text="5">0%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="topics-section">
+                            <h3 class="section-subtitle">Topics</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Variables</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Data types</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Operators</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Conditions (if/else)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Loops (for, while)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Arrays</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Objects</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Functions</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>DOM manipulation</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Events (click, input, change)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>setTimeout & setInterval</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>JSON</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>LocalStorage</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Fetch API</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Async & await</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="projects-section">
+                            <h3 class="section-subtitle">🔨 Projects</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Calculator</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Weather app</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Todo app</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Notes app</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Expense tracker</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Modal, popup, slider, dropdown</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="5">
+                                    <span>Small e-commerce cart functionality</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 6: Git & GitHub -->
+                <div class="phase-card" data-phase="6">
+                    <div class="phase-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <h2 class="phase-title">Phase 6 — Git & GitHub</h2>
+                            <div class="phase-progress">
+                                <svg class="progress-ring" width="60" height="60">
+                                    <circle class="progress-ring-circle-bg" cx="30" cy="30" r="26"></circle>
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="26" data-phase-id="6">
+                                    </circle>
+                                    <text x="30" y="35" class="progress-text" data-phase-text="6">0%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="topics-section">
+                            <h3 class="section-subtitle">Topics</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="6">
+                                    <span>Install Git</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="6">
+                                    <span>git init</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="6">
+                                    <span>git add</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="6">
+                                    <span>git commit</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="6">
+                                    <span>git push</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="6">
+                                    <span>git pull</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="6">
+                                    <span>Create branches</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="6">
+                                    <span>Merge branches</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="6">
+                                    <span>GitHub Pages deployment</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="projects-section">
+                            <h3 class="section-subtitle">🔨 Projects</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="6">
+                                    <span>Host portfolio</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="6">
+                                    <span>Host 3 apps</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 7: React.js -->
+                <div class="phase-card" data-phase="7">
+                    <div class="phase-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 5a1 1 0 011-1h4a1 1 0 010 2H6v2a1 1 0 01-2 0V5zM4 13a1 1 0 011-1h2a1 1 0 110 2H5a1 1 0 01-1-1zm6-8a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm6 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zm-9 4a1 1 0 100 2 1 1 0 000-2zm4 0a1 1 0 100 2 1 1 0 000-2zm4 0a1 1 0 100 2 1 1 0 000-2zm-8 4a1 1 0 100 2 1 1 0 000-2zm4 0a1 1 0 100 2 1 1 0 000-2zm4 0a1 1 0 100 2 1 1 0 000-2zm-8 4a1 1 0 100 2 1 1 0 000-2zm4 0a1 1 0 100 2 1 1 0 000-2zm4 0a1 1 0 100 2 1 1 0 000-2z" />
+                        </svg>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <h2 class="phase-title">Phase 7 — React.js</h2>
+                            <div class="phase-progress">
+                                <svg class="progress-ring" width="60" height="60">
+                                    <circle class="progress-ring-circle-bg" cx="30" cy="30" r="26"></circle>
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="26" data-phase-id="7">
+                                    </circle>
+                                    <text x="30" y="35" class="progress-text" data-phase-text="7">0%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="topics-section">
+                            <h3 class="section-subtitle">Topics</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>Create React project (Vite recommended)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>Components</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>Props</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>State</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>useState</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>useEffect</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>Conditional rendering</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>Lists & keys</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>React Router</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>Props drilling</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>Context API</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>Fetch API in React</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>Forms</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>Controlled components</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="projects-section">
+                            <h3 class="section-subtitle">🔨 Projects</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>React portfolio</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>Movie app</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>Notes app</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>E-commerce UI with cart</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>Dashboard UI</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="7">
+                                    <span>API-based app (weather/news/search)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 8: Modern Tools -->
+                <div class="phase-card" data-phase="8">
+                    <div class="phase-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <h2 class="phase-title">Phase 8 — Modern Tools</h2>
+                            <div class="phase-progress">
+                                <svg class="progress-ring" width="60" height="60">
+                                    <circle class="progress-ring-circle-bg" cx="30" cy="30" r="26"></circle>
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="26" data-phase-id="8">
+                                    </circle>
+                                    <text x="30" y="35" class="progress-text" data-phase-text="8">0%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="topics-section">
+                            <h3 class="section-subtitle">Topics (Optional but Strong)</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="8">
+                                    <span>Vite</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="8">
+                                    <span>Redux Toolkit or Zustand</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="8">
+                                    <span>TanStack Query</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="8">
+                                    <span>Axios</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="8">
+                                    <span>Tailwind + React</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="8">
+                                    <span>Component libraries (ShadCN, MUI, AntD)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 9: Deployment -->
+                <div class="phase-card" data-phase="9">
+                    <div class="phase-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                        </svg>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <h2 class="phase-title">Phase 9 — Deployment</h2>
+                            <div class="phase-progress">
+                                <svg class="progress-ring" width="60" height="60">
+                                    <circle class="progress-ring-circle-bg" cx="30" cy="30" r="26"></circle>
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="26" data-phase-id="9">
+                                    </circle>
+                                    <text x="30" y="35" class="progress-text" data-phase-text="9">0%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="topics-section">
+                            <h3 class="section-subtitle">Topics</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="9">
+                                    <span>Deploy to Vercel</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="9">
+                                    <span>Deploy to Netlify</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="9">
+                                    <span>Deploy to GitHub Pages</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="9">
+                                    <span>Domain setup (optional)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="projects-section">
+                            <h3 class="section-subtitle">🔨 Projects</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="9">
+                                    <span>Deploy 5+ React apps</span>
+                                </label>
+                                <label class="checkbox-item project-item">
+                                    <input type="checkbox" data-phase="9">
+                                    <span>Deploy all landing pages</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 10: Portfolio -->
+                <div class="phase-card" data-phase="10">
+                    <div class="phase-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <h2 class="phase-title">Phase 10 — Portfolio (Final)</h2>
+                            <div class="phase-progress">
+                                <svg class="progress-ring" width="60" height="60">
+                                    <circle class="progress-ring-circle-bg" cx="30" cy="30" r="26"></circle>
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="26" data-phase-id="10">
+                                    </circle>
+                                    <text x="30" y="35" class="progress-text" data-phase-text="10">0%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="topics-section">
+                            <h3 class="section-subtitle">Topics</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="10">
+                                    <span>Hero section</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="10">
+                                    <span>About me</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="10">
+                                    <span>Skills</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="10">
+                                    <span>Projects (min 6)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="10">
+                                    <span>Contact form</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="10">
+                                    <span>Resume download</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="10">
+                                    <span>Mobile responsive</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="10">
+                                    <span>Deployed live</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="10">
+                                    <span>GitHub link on every project</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 11: Job Readiness -->
+                <div class="phase-card" data-phase="11">
+                    <div class="phase-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <h2 class="phase-title">Phase 11 — Job Readiness</h2>
+                            <div class="phase-progress">
+                                <svg class="progress-ring" width="60" height="60">
+                                    <circle class="progress-ring-circle-bg" cx="30" cy="30" r="26"></circle>
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="26" data-phase-id="11">
+                                    </circle>
+                                    <text x="30" y="35" class="progress-text" data-phase-text="11">0%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="topics-section">
+                            <h3 class="section-subtitle">Topics</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="11">
+                                    <span>JavaScript interview questions</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="11">
+                                    <span>React interview questions</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="11">
+                                    <span>Build projects from scratch</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="11">
+                                    <span>Improve communication</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="11">
+                                    <span>Resume for front-end role</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="11">
+                                    <span>GitHub cleaned & organized</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="11">
+                                    <span>Portfolio finished</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bonus Section -->
+                <div class="phase-card bonus-phase" data-phase="bonus">
+                    <div class="phase-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                    </div>
+                    <div class="phase-content">
+                        <div class="phase-header">
+                            <h2 class="phase-title">⚡ Bonus (Optional but Powerful)</h2>
+                            <div class="phase-progress">
+                                <svg class="progress-ring" width="60" height="60">
+                                    <circle class="progress-ring-circle-bg" cx="30" cy="30" r="26"></circle>
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="26" data-phase-id="bonus">
+                                    </circle>
+                                    <text x="30" y="35" class="progress-text" data-phase-text="bonus">0%</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="topics-section">
+                            <h3 class="section-subtitle">Topics</h3>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="bonus">
+                                    <span>Learn basic UI/UX</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="bonus">
+                                    <span>Figma basics</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="bonus">
+                                    <span>Color theory</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="bonus">
+                                    <span>Typography</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="bonus">
+                                    <span>Basic APIs (weather, news, openlibrary, etc.)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" data-phase="bonus">
+                                    <span>Practice LeetCode easy problems (optional)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Front-End Developer Roadmap. Track your progress, build your future.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

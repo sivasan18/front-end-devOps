@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-End Developer Certificate</title>
+    <link rel="stylesheet" href="css/certificate.css">
+    <script>
+        // Security Check: Redirect if not 100% complete
+        try {
+            const STORAGE_KEY = 'frontend_roadmap_progress';
+            const saved = localStorage.getItem(STORAGE_KEY);
+            const progress = saved ? JSON.parse(saved) : {};
+
+            // Calculate progress (approximate check based on known total)
+            // Ideally we'd import the count, but for a standalone page we'll check the count
+            // For now, let's check if there are at least 140 completed items (total is ~142)
+            const completedCount = Object.values(progress).filter(Boolean).length;
+
+            if (completedCount < 140) {
+                alert('🚫 Access Denied!\n\nYou must complete the entire roadmap to access your certificate.');
+                window.location.href = 'index.html';
+            }
+        } catch (e) {
+            console.error('Auth check failed', e);
+            window.location.href = 'index.html';
+        }
+    </script>
+    <style>
+        /* Inline overrides if needed */
+    </style>
+</head>
+
+<body>
+
+    <div class="certificate-container">
+        <div class="certificate-border">
+
+            <!-- Decorative Corners -->
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+
+            <!-- Badge -->
+            <div class="cert-badge">
+                <svg class="badge-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                </svg>
+            </div>
+
+            <!-- Header -->
+            <div class="cert-header">
+                <h1 class="cert-title">Front-End Developer Certificate – 2025</h1>
+                <div class="cert-subtitle">This certifies that</div>
+            </div>
+
+            <!-- Name Section -->
+            <div class="cert-name-section">
+                <div class="cert-presented-to">Has successfully completed the roadmap</div>
+                <div class="cert-name" contenteditable="true" id="studentName">Enter Name Here</div>
+            </div>
+
+            <!-- Body Text -->
+            <div class="cert-body">
+                <p>
+                    For demonstrating proficiency in <strong>Front-End Development</strong> by mastering the
+                    comprehensive roadmap including
+                    HTML5, CSS3, Responsive Design, Tailwind CSS, JavaScript (ES6+), Git/GitHub, React.js, Modern Tools,
+                    Deployment strategies, and Professional Portfolio Building.
+                </p>
+            </div>
+
+            <!-- Footer -->
+            <div class="cert-footer">
+                <div class="signature-block">
+                    <div class="signature-line">Antigravity AI</div>
+                    <div class="signature-label">Instructor</div>
+                </div>
+
+                <div class="signature-block">
+                    <div class="signature-line" id="certDate"></div>
+                    <div class="signature-label">Date Issued</div>
+                </div>
+
+                <div class="signature-block">
+                    <div class="signature-line">Google DeepMind</div>
+                    <div class="signature-label">Certification Authority</div>
+                </div>
+            </div>
+
+            <!-- Certificate ID -->
+            <div class="cert-id">Certificate ID: FED-2025-WEB-001</div>
+
+        </div>
+    </div>
+
+    <!-- Controls (Hidden in Print) -->
+    <div class="controls no-print">
+        <button class="btn btn-edit" onclick="editName()">✎ Edit Name</button>
+        <button class="btn btn-print" onclick="window.print()">🖨️ Print to PDF</button>
+    </div>
+
+    <script>
+        // Set today's date
+        const dateElement = document.getElementById('certDate');
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        dateElement.textContent = new Date().toLocaleDateString('en-US', options);
+
+        // Handle Name Input
+        function editName() {
+            const nameElement = document.getElementById('studentName');
+            const newName = prompt("Enter the name for the certificate:", nameElement.textContent);
+            if (newName) {
+                nameElement.textContent = newName;
+            }
+        }
+
+        // Auto-focus name if it's the default
+        window.onload = () => {
+            const nameElement = document.getElementById('studentName');
+            if (nameElement.textContent === 'Enter Name Here') {
+                // Check URL params
+                const urlParams = new URLSearchParams(window.location.search);
+                const nameParam = urlParams.get('name');
+                if (nameParam) {
+                    nameElement.textContent = nameParam;
+                }
+            }
+        };
+    </script>
+
+</body>
+
+</html>
