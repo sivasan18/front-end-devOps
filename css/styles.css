@@ -508,6 +508,38 @@ body {
     gap: var(--spacing-sm);
 }
 
+/* Edit Mode Button */
+.edit-mode-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.edit-mode-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    border-color: var(--text-muted);
+}
+
+.edit-mode-btn.active {
+    background: rgba(220, 38, 38, 0.2);
+    border-color: var(--primary-red);
+    color: var(--primary-red-light);
+}
+
+.footer-edit-btn {
+    margin: var(--spacing-md) auto 0;
+    /* Center in footer with top margin */
+}
+
 .checkbox-item {
     display: flex;
     align-items: center;
