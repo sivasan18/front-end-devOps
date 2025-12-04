@@ -71,3 +71,61 @@ UI/UX, Figma, APIs, and LeetCode practice.
 **Made with ❤️ for aspiring Front-End Developers**
 
 *Start your journey today and build amazing things!* 🚀
+<!-- Premium Front-End DevOps README 2025 -->
+
+# 🚀 Front-End DevOps Roadmap 2025  
+A modern, interactive roadmap + toolkit to master **Front-End Development + DevOps** in a single place.  
+Beautiful UI • Clean Timeline • Progress Tracker • 2025-Ready Workflow.
+
+---
+
+## 🔰 Status & Tech Stack
+
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
+![HTML](https://img.shields.io/badge/HTML5-E44D26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![DevOps](https://img.shields.io/badge/DevOps-0A66C2?style=for-the-badge&logo=devops&logoColor=white)
+
+---
+
+## ✨ Features (2025 Edition)
+
+✔ **Interactive Learning Roadmap**  
+✔ **LocalStorage Progress Save**  
+✔ **11 Clean Phases (Front-End + DevOps)**  
+✔ **Smooth Timeline UI & Animations**  
+✔ **Dark-Theme Gradient Design**  
+✔ **Keyboard Shortcut:** `Ctrl/Cmd + K` = Stats  
+✔ **Mobile / Tablet / Desktop Responsive**  
+✔ **Lightweight (HTML + CSS + JS only)**  
+
+---
+
+## 🧭 What You Will Learn
+
+### **Front-End Path**
+- HTML5 Fundamentals  
+- CSS3 + Flexbox + Grid  
+- Responsive Design  
+- JavaScript (Core + Advanced)  
+- Git & GitHub  
+- React.js  
+- Modern Tools (Vite, Zustand, Tanstack Query)  
+- Portfolio Building  
+- Deployment (Vercel, Netlify, GitHub Pages)  
+
+### **DevOps Path**
+- Command Line Basics  
+- Git Workflows  
+- CI/CD Basics  
+- Cloud Deployment Basics (Vercel/Netlify)  
+- Monitoring & Logs  
+
+---
+
+## 🖥️ Run Locally
+
+```bash
+git clone https://github.com/sivasan18/front-end-devOps.git
+cd front-end-devOps

@@ -94,8 +94,16 @@ class RoadmapManager {
         const item = checkbox.closest('.checkbox-item');
         if (item) {
             item.classList.add('locked');
-            item.setAttribute('data-locked-message', 'Locked — completion saved');
-            checkbox.disabled = true;
+
+            if (!this.isEditMode) {
+                item.setAttribute('data-locked-message', 'Locked — completion saved');
+                checkbox.disabled = true;
+            } else {
+                // In Edit Mode, keep enabled and no tooltip
+                item.removeAttribute('data-locked-message');
+                checkbox.disabled = false;
+            }
+
             this.saveLockedState(index, true);
 
             if (addLog) {
@@ -168,18 +176,32 @@ class RoadmapManager {
 
     attachEventListeners() {
         this.checkboxes.forEach((checkbox, index) => {
-            checkbox.addEventListener('change', (e) => {
-                if (checkbox.checked && !checkbox.disabled) {
-                    // Show confirmation modal
-                    e.preventDefault();
-                    checkbox.checked = false; // Reset until confirmed
-                    this.currentCheckbox = checkbox;
-                    this.showConfirmModal(checkbox);
-                } else if (!checkbox.checked && this.isEditMode && checkbox.closest('.checkbox-item').classList.contains('locked')) {
-                    // Unlocking in edit mode
-                    this.unlockCheckbox(checkbox, index);
+            // Use 'click' event to intercept state changes before they finalize
+            checkbox.addEventListener('click', (e) => {
+                const item = checkbox.closest('.checkbox-item');
+                const isLocked = item.classList.contains('locked');
+
+                // Handle Edit Mode
+                if (this.isEditMode) {
+                    // Single-click behavior: just update state based on new checked status
+                    if (checkbox.checked) {
+                        // Became checked -> Lock it (Edit Mode keeps it enabled/no tooltip)
+                        this.lockCheckbox(checkbox, index);
+                    } else {
+                        // Became unchecked -> Unlock it
+                        this.unlockCheckbox(checkbox, index);
+                    }
+
                     this.saveProgress();
                     this.updateAllProgress();
+                    return;
+                }
+
+                // Handle Normal Completion (Locking)
+                if (checkbox.checked && !checkbox.disabled && !isLocked) {
+                    e.preventDefault(); // Prevent immediate checking
+                    this.currentCheckbox = checkbox;
+                    this.showConfirmModal(checkbox);
                 }
             });
         });
@@ -349,6 +371,15 @@ class RoadmapManager {
         btn.classList.add('active');
         btn.querySelector('span').textContent = 'Exit Edit Mode';
 
+        // Enable all locked checkboxes
+        this.checkboxes.forEach(checkbox => {
+            const item = checkbox.closest('.checkbox-item');
+            if (item && item.classList.contains('locked')) {
+                checkbox.disabled = false; // Enable interaction
+                item.removeAttribute('data-locked-message'); // Remove tooltip
+            }
+        });
+
         console.log('🔓 Edit Mode ENABLED - You can now unlock completed items');
         this.addAuditLog('edit_mode_enabled', -1, 'System');
     }
@@ -360,7 +391,16 @@ class RoadmapManager {
         btn.classList.remove('active');
         btn.querySelector('span').textContent = 'Edit Mode';
 
-        console.log('🔒 Edit Mode DISABLED');
+        // Re-lock all completed checkboxes
+        this.checkboxes.forEach(checkbox => {
+            const item = checkbox.closest('.checkbox-item');
+            if (item && item.classList.contains('locked')) {
+                checkbox.disabled = true; // Disable interaction
+                item.setAttribute('data-locked-message', 'Locked — completion saved'); // Restore tooltip
+            }
+        });
+
+        console.log('🔓 Edit Mode DISABLED');
         this.addAuditLog('edit_mode_disabled', -1, 'System');
     }
 
